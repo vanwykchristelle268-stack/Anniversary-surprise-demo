@@ -3,49 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Our Anniversary 💜</title>
 
 <style>
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #ffe6f2, #e8d5ff, #fff0f5);
+    margin: 0;
     min-height: 100vh;
-    text-align: center;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #ffe6f2, #e8d5ff, #fff0f5);
     color: #69416e;
+    text-align: center;
     overflow-x: hidden;
 }
 
 .container {
-    max-width: 750px;
-    margin: auto;
-    padding: 70px 20px;
     position: relative;
     z-index: 2;
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 70px 20px;
 }
 
 h1 {
     font-size: 3rem;
     margin-bottom: 20px;
-    animation: fadeIn 2s ease;
+    animation: fadeIn 1.5s ease;
 }
 
 .subtitle {
     font-size: 1.3rem;
-    margin-bottom: 35px;
     line-height: 1.8;
+    margin-bottom: 35px;
 }
 
 .heart {
     font-size: 75px;
-    animation: heartbeat 1.5s infinite;
     margin-bottom: 30px;
+    animation: heartbeat 1.5s infinite;
 }
 
 button {
@@ -65,14 +67,23 @@ button:hover {
     transform: scale(1.05);
 }
 
+button:focus-visible {
+    outline: 3px solid #69416e;
+    outline-offset: 4px;
+}
+
 .surprise {
     display: none;
-    background: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.9);
     margin-top: 45px;
     padding: 35px;
     border-radius: 25px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    animation: fadeIn 1.5s ease;
+}
+
+.surprise.visible {
+    display: block;
+    animation: fadeIn 1s ease;
 }
 
 .surprise h2 {
@@ -102,7 +113,8 @@ button:hover {
 footer {
     margin-top: 60px;
     font-size: 0.85rem;
-    opacity: 0.7;
+    line-height: 1.8;
+    opacity: 0.8;
 }
 
 @keyframes heartbeat {
@@ -113,3 +125,129 @@ footer {
         transform: scale(1.2);
     }
 }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .container {
+        padding: 50px 20px;
+    }
+
+    .surprise {
+        padding: 25px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+
+    <div class="heart" aria-hidden="true">💜</div>
+
+    <h1>Happy Anniversary, My Love!</h1>
+
+    <p class="subtitle">
+        Every love story is beautiful,
+        but ours will always be my favourite.
+        <br><br>
+        Today is a celebration of us,
+        our memories, our laughter,
+        and every beautiful moment we've shared.
+    </p>
+
+    <button
+        id="surpriseButton"
+        type="button"
+        aria-controls="surprise"
+        aria-expanded="false"
+        onclick="showSurprise()">
+        💌 Open Your Surprise
+    </button>
+
+    <section
+        class="surprise"
+        id="surprise"
+        aria-label="Anniversary love letter">
+
+        <h2>To My Favourite Person 💕</h2>
+
+        <p>
+            If I could choose anyone in the world
+            to share my life with,
+            I would choose you.
+            <br><br>
+
+            Not just today.
+            Not just tomorrow.
+            But in every lifetime,
+            in every universe,
+            and in every version of our story.
+            <br><br>
+
+            Thank you for the smiles,
+            the adventures,
+            the little moments,
+            and the memories
+            that mean everything to me.
+            <br><br>
+
+            No matter where life takes us,
+            you will always have
+            a special place in my heart.
+            <br><br>
+
+            Here's to us,
+            and to all the beautiful memories
+            we still have to make.
+            <br><br>
+
+            Happy Anniversary! 💜
+        </p>
+
+        <div class="signature">
+            Forever yours, with all my love. 💕
+        </div>
+
+    </section>
+
+    <footer>
+        Made with love 💜
+        <br>
+        Designed by Pixel &amp; Paper Studio
