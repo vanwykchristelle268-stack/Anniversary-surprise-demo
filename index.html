@@ -251,3 +251,28 @@ footer {
         Made with love 💜
         <br>
         Designed by Pixel &amp; Paper Studio
+
+        <br>
+        Your ideas, beautifully brought to life.
+    </footer>
+
+</main>
+
+<script>
+function showSurprise() {
+    const surprise = document.getElementById("surprise");
+
+    surprise.classList.add("visible");
+
+    const button = document.getElementById("surpriseButton");
+    button.setAttribute("aria-expanded", "true");
+
+    surprise.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+</script>
+
+</body>
+</html>
